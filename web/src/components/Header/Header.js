@@ -17,7 +17,14 @@ const Header = () => {
           <li>
             <Link to={routes.contact()}>Contact Us</Link>
           </li>
-          {isAuthenticated && <li>{currentUser.email}</li>}
+          {isAuthenticated && (
+            <>
+              <li>{currentUser.email}</li>
+              <li>
+                <Link to={routes.posts()}>Admin Panel</Link>
+              </li>
+            </>
+          )}
           <li>
             <button onClick={isAuthenticated ? logOut : logIn}>
               {isAuthenticated ? 'Log Out' : 'Log In'}
